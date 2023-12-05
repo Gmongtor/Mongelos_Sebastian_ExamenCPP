@@ -14,7 +14,7 @@ public:
         if (it != symbols.end()) {
             return it->second;
         } else {
-            throw std::runtime_error("Symbol not found");
+            throw std::runtime_error("Simbolo no encontrado");
         }
     }
 
