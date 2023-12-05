@@ -6,24 +6,20 @@ class Environment {
 private:
     map<std::string, int> symbolTable;
 public:
-    bool insert (const pair<string,int>& val) {
-        return symbolTable.insert(val).second;
-    }
-    int getSymbol(const string& key) {
+    bool insert(const std::string& key, int value) {
         auto it = symbolTable.find(key);
         if (it != symbolTable.end()) {
-            return it->second;
+            return false;
         }
-        throw runtime_error("Simbolo no encontrado");
+        symbolTable[key] = value;
+        return true;
     }
 };
 int main(){
     Environment env;
-    env.insert({"x", 10});
-    env.insert({"y", 20});
-    env.insert({"z", 30});
-    cout << env.getSymbol("x") << endl;
-    cout << env.getSymbol("y") << endl;
-    cout << env.getSymbol("z") << endl;
+    env.insert("x", 10);
+    env.insert("y", 20);
+    env.insert("z", 30);
+    env.insert("x", 40);
     return 0;
 }
