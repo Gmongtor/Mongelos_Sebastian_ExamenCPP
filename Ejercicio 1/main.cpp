@@ -19,6 +19,9 @@ public:
     void removeSymbol(const string& key) {
         symbolTable.erase(key);
     }
+    bool insert (const pair<string,int>& val) {
+        return symbolTable.insert(val).second;
+    }
 };
 int main() {
     Environment env;
