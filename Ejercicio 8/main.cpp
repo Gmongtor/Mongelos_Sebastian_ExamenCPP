@@ -23,3 +23,9 @@ long long factorialConCache(int n) {
     cache[n] = n * factorialConCache(n - 1);
     return cache[n];
 }
+int main() {
+    std::cout << factorialIterativo(5) << std::endl;
+    std::cout << factorialRecursivo(5) << std::endl;
+    std::cout << factorialConCache(5) << std::endl;
+    return 0;
+}
