@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 long long factorialIterativo(int n) {
     long long result = 1;
     for (int i = 1; i <= n; i++) {
@@ -24,8 +25,16 @@ long long factorialConCache(int n) {
     return cache[n];
 }
 int main() {
-    std::cout << factorialIterativo(5) << std::endl;
-    std::cout << factorialRecursivo(5) << std::endl;
-    std::cout << factorialConCache(5) << std::endl;
+    std::unordered_map<int, long long> cache;
+    int numero;
+    std::cout << "Ingrese un número para calcular su factorial: ";
+    std::cin >> numero;
+
+    if (numero < 0) {
+        std::cout << "El número no puede ser negativo." << std::endl;
+        return 1;
+    }
+    long long resultado = factorialConCache(numero);
+    std::cout << "El factorial de " << numero << " es " << resultado << std::endl;
     return 0;
 }
