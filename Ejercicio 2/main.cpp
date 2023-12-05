@@ -20,6 +20,12 @@ int main(){
     env.insert("x", 10);
     env.insert("y", 20);
     env.insert("z", 30);
-    env.insert("x", 40);
-    return 0;
+    for (const auto& key : {"x", "y", "z", "unknown"}) {
+        auto value = env.getSymbol(key);
+        if (value) {
+            std::cout << key << " = " << *value << std::endl;
+        } else {
+            std::cout << "El símbolo '" << key << "' no existe." << std::endl;
+        }
+    }
 }
