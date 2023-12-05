@@ -17,3 +17,13 @@ public:
         throw runtime_error("Simbolo no encontrado");
     }
 };
+int main(){
+    Environment env;
+    env.insert({"x", 10});
+    env.insert({"y", 20});
+    env.insert({"z", 30});
+    cout << env.getSymbol("x") << endl;
+    cout << env.getSymbol("y") << endl;
+    cout << env.getSymbol("z") << endl;
+    return 0;
+}
