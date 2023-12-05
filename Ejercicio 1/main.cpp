@@ -19,5 +19,17 @@ public:
     void removeSymbol(const string& key) {
         symbolTable.erase(key);
     }
-
 };
+int main() {
+    Environment env;
+    env.addSymbol("x", 10);
+    env.addSymbol("y", 20);
+    env.addSymbol("z", 30);
+    cout << env.getSymbol("x") << endl;
+    cout << env.getSymbol("y") << endl;
+    cout << env.getSymbol("z") << endl;
+    env.removeSymbol("y");
+    cout << env.getSymbol("x") << endl;
+    cout << env.getSymbol("z") << endl;
+    return 0;
+}
