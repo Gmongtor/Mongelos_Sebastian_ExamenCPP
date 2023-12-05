@@ -11,3 +11,14 @@ void ProcesoDeRiesgo(int n) {
     }
     std::cout << "Procesamiento completado con el valor: " << std::endl;
 }
+int main() {
+    int n;
+    std::cout << "Ingrese un numero: ";
+    std::cin >> n;
+    try {
+        ProcesoDeRiesgo(n);
+    } catch (const std::runtime_error& e) {
+        std::cout << e.what() << std::endl;
+    }
+    return 0;
+}
