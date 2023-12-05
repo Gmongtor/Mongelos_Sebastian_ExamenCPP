@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <stdexcept>
 void ProcesoDeRiesgo(int n) {
     if (n < 0) {
