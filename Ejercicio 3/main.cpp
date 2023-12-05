@@ -3,16 +3,23 @@
 #include <unordered_map>
 using namespace std;
 class SymbolTable {
-private:
-    unordered_map<std::string, int> symbolTable;
 public:
-    int lookup(const string& key) {
-        auto it = symbolTable.find(key);
-        if (it != symbolTable.end()) {
-            return it->second;
-        }
-        throw runtime_error("Simbolo no encontrado");
+
+    void add(const std::string& symbol, int value) {
+        symbols[symbol] = value;
     }
+
+    int lookup(const std::string& symbol) {
+        auto it = symbols.find(symbol);
+        if (it != symbols.end()) {
+            return it->second;
+        } else {
+            throw std::runtime_error("Symbol not found");
+        }
+    }
+
+private:
+    std::unordered_map<std::string, int> symbols;
 };
 int main(){
     SymbolTable tablaSimbolos;
