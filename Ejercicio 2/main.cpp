@@ -30,7 +30,5 @@ int main(){
     cout << env.getSymbol("x") << endl;
     cout << env.getSymbol("y") << endl;
     cout << env.getSymbol("z") << endl;
-    env.insert("y", 40);
-    cout << env.getSymbol("y") << endl;
     return 0;
 }
