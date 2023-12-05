@@ -14,18 +14,23 @@ public:
         symbolTable[key] = value;
         return true;
     }
+    int getSymbol(const string& key) {
+        auto it = symbolTable.find(key);
+        if (it != symbolTable.end()) {
+            return it->second;
+        }
+        throw runtime_error("Simbolo no encontrado");
+    }
 };
 int main(){
     Environment env;
     env.insert("x", 10);
     env.insert("y", 20);
     env.insert("z", 30);
-    for (const auto& key : {"x", "y", "z", "unknown"}) {
-        auto value = env.getSymbol(key);
-        if (value) {
-            std::cout << key << " = " << *value << std::endl;
-        } else {
-            std::cout << "El símbolo '" << key << "' no existe." << std::endl;
-        }
-    }
+    cout << env.getSymbol("x") << endl;
+    cout << env.getSymbol("y") << endl;
+    cout << env.getSymbol("z") << endl;
+    env.insert("y", 40);
+    cout << env.getSymbol("y") << endl;
+    return 0;
 }
