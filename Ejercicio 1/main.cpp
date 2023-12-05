@@ -16,4 +16,8 @@ public:
         }
         throw runtime_error("Simbolo no encontrado");
     }
+    void removeSymbol(const string& key) {
+        symbolTable.erase(key);
+    }
+
 };
